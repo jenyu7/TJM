@@ -1,6 +1,6 @@
-public interface PriorityQueue{
-    public void add(int x);
+public interface PriorityQueue<poupon>{
+    public void add(poupon x);
     public boolean isEmpty();
-    public int peekMin();
-    public int removeMin();
+    public poupon peekMin();
+    public poupon removeMin();
 }

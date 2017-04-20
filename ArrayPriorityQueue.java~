@@ -6,11 +6,11 @@
  ************************/
  
 import java.util.ArrayList;
-public class ArrayPriorityQueue<D> implements PriorityQueue<D>
+public class ArrayPriorityQueue
 {
 	//Instance Variables
 	//Underlying ArrayList Container for ArrayPriorityQueue
-    private ArrayList<D> _data;
+    private ArrayList<Integer> _data;
 	
 	//Constructors
 	//Default
@@ -20,7 +20,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
     }
 	
 	//Overloaded: point _data to a pre-existing ArrayList
-	public ArrayPriorityQueue(ArrayList<D> a)
+	public ArrayPriorityQueue(ArrayList<Integer> a)
 	{
 		_data = a;
 	}
@@ -33,7 +33,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	 * lowest priority (biggest integer values). Item with highest priority is in index 0. 
 	 * Post-condition: _data is unchanged. Item in index 0 is returned.
 	 **/
-    public D peekMin()
+    public Integer peekMin()
     {
 		if (isEmpty()){return null;}
 		return _data.get(0);
@@ -47,7 +47,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	 * Post-condition: The first element of _data is removed and returned. All other items are now shifted to the left, and 
 	 * the item formerly in index[1] is now of highest priority. 
 	 **/
-    public D removeMin()
+    public Integer removeMin()
     {
 		if (isEmpty()){return null;}
 		return _data.remove(0);
@@ -61,7 +61,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	 * the correct index of an Integer i in an ArrayList in order to maintain sortedness. 
 	 * Post-condition: _data is still sorted in terms of priorities, and the new item has been added in its correct position. 
 	 **/
-    public void add(D i)
+    public void add(Integer i)
     {
 		int index = addBinaryHelp(0, _data.size(), i);
 		_data.add(index, i);
@@ -77,8 +77,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
     } //O(1)
 	
 	//Finds the correct index of an Integer in a sorted array so that sortedness is maintained (lowest --> highest value)
-	public int addBinaryHelp(int lo, int hi, D newVal){
-
+	public int addBinaryHelp(int lo, int hi, Comparable newVal){
 		if (lo > hi){
 			return lo;
 		}
