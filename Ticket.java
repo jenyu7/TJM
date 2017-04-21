@@ -1,6 +1,6 @@
 public class Ticket implements Comparable{
 
-    private static int IDnum = 0;
+    private static int IDNum = 0;
     private int ID;
     private int VIPLevel;
     private String problem;

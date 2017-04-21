@@ -24,6 +24,11 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	{
 		_data = a;
 	}
+
+	public String toString()
+	{
+	    return _data.toString();
+	}
 	
 	//Methods
 	/**
@@ -63,8 +68,14 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	 **/
     public void add(D i)
     {
-
+	if (isEmpty())
+	    {
+		_data.add(i);
+		return;
+	    }
 	int index = addBinaryHelp(0, _data.size(), (Comparable)i);
+	System.out.println(index);
+	if (index == _data.size()){_data.add(i); return;}
        	_data.add(index, i);
     } //O(nlogn)
 
