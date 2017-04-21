@@ -10,6 +10,7 @@ public class Ticket implements Comparable{
     public Ticket(){
 	ID = IDNum;
 	IDNum += 1;
+	//System.out.println(IDNum);
 	VIPLevel = 0;
 	problem = "Unnamed";
 	solved = false;
@@ -17,9 +18,9 @@ public class Ticket implements Comparable{
     }
 
     public Ticket(int vip, String name, String issue){
-	this();
 	ID = IDNum;
-	IDNum ++;
+	IDNum += 1;
+	//System.out.println(IDNum);
 	VIPLevel = vip;
 	userName = name;
 	problem = issue;
@@ -52,6 +53,7 @@ public class Ticket implements Comparable{
 	ret += ("\nSubmitted by: " + userName);
 	ret += ("\nIssue: " + problem);
 	ret += ("\nSolved? " + solved);
+	ret += "\n";
 	return ret;
 
     }
@@ -67,7 +69,7 @@ public class Ticket implements Comparable{
 	    return -1;
 	}
     }
-
+    /**
     public static void main(String[] args){
 	Ticket ralph = new Ticket();
 	System.out.println(ralph);
@@ -75,6 +77,7 @@ public class Ticket implements Comparable{
 	System.out.println(bob);
 	System.out.println(bob.compareTo(ralph));
     }
+    **/
 
 
 

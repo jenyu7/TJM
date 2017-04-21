@@ -74,7 +74,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 		return;
 	    }
 	int index = addBinaryHelp(0, _data.size(), (Comparable)i);
-	System.out.println(index);
+	//System.out.println(index);
 	if (index == _data.size()){_data.add(i); return;}
        	_data.add(index, i);
     } //O(nlogn)
@@ -90,8 +90,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	
 	//Finds the correct index of an Integer in a sorted array so that sortedness is maintained (lowest --> highest value)
 	public int addBinaryHelp(int lo, int hi, Comparable  newVal){
-
-		if (lo > hi){
+	    if (((lo > hi) || (lo == _data.size())) || (hi == _data.size())){
 			return lo;
 		}
 		else{
@@ -125,6 +124,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 		System.out.println(humble.removeMin());
 		humble.add(2);
 		humble.add(4);
+		System.out.println(humble);
 		//expected: 2
 		System.out.println(humble.removeMin());
 		//expected: 3
@@ -143,7 +143,6 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 		System.out.println(lamar.peekMin());
 		//expected: null
 		System.out.println(lamar.removeMin());
-		
 		/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		//a stupid user
 		ArrayList<String> tedtalk = new ArrayList();
