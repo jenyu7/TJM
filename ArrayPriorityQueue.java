@@ -144,7 +144,9 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 
 		//Testing Tickets
 		ArrayPriorityQueue<Ticket> sopranoc = new ArrayPriorityQueue();
-
-
+		sopranoc.add(new Ticket(5, "fi", "died"));
+		sopranoc.add(new Ticket(2, "fi", "died"));
+		sopranoc.add(new Ticket(3, "fi", "died"));
+		System.out.println(sopranoc);
 	       }
 }
