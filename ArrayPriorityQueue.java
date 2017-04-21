@@ -63,8 +63,9 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	 **/
     public void add(D i)
     {
-		int index = addBinaryHelp(0, _data.size(), i);
-		_data.add(index, i);
+
+	int index = addBinaryHelp(0, _data.size(), (Comparable)i);
+       	_data.add(index, i);
     } //O(nlogn)
 
 	//Helpers
@@ -77,7 +78,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
     } //O(1)
 	
 	//Finds the correct index of an Integer in a sorted array so that sortedness is maintained (lowest --> highest value)
-	public int addBinaryHelp(int lo, int hi, D newVal){
+	public int addBinaryHelp(int lo, int hi, Comparable  newVal){
 
 		if (lo > hi){
 			return lo;
