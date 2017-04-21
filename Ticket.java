@@ -73,6 +73,7 @@ public class Ticket implements Comparable{
 	System.out.println(ralph);
 	Ticket bob = new Ticket(3,"Tina Chen", "My computer blew up.");
 	System.out.println(bob);
+	System.out.println(bob.compareTo(ralph));
     }
 
 
