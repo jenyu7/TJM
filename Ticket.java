@@ -1,5 +1,6 @@
 public class Ticket implements Comparable{
 
+    private static int IDnum = 0;
     private int ID;
     private int VIPLevel;
     private String problem;
@@ -7,16 +8,18 @@ public class Ticket implements Comparable{
     private String userName;
 
     public Ticket(){
-	ID = 0;
+	ID = IDNum;
+	IDNum += 1;
 	VIPLevel = 0;
 	problem = "Unnamed";
 	solved = false;
 	userName = "Name of User";
     }
 
-    public Ticket(int id, int vip, String name, String issue){
+    public Ticket(int vip, String name, String issue){
 	this();
-	ID = id;
+	ID = IDNum;
+	IDNum ++;
 	VIPLevel = vip;
 	userName = name;
 	problem = issue;
@@ -68,7 +71,7 @@ public class Ticket implements Comparable{
     public static void main(String[] args){
 	Ticket ralph = new Ticket();
 	System.out.println(ralph);
-	Ticket bob = new Ticket(1,3,"Tina Chen", "My computer blew up.");
+	Ticket bob = new Ticket(3,"Tina Chen", "My computer blew up.");
 	System.out.println(bob);
     }
 
