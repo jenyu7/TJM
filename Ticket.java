@@ -7,54 +7,63 @@ public class Ticket implements Comparable{
     private boolean solved;
     private String userName;
 
-    public Ticket(){
-	ID = IDNum;
-	IDNum += 1;
-	//System.out.println(IDNum);
-	VIPLevel = 0;
-	problem = "Unnamed";
-	solved = false;
-	userName = "Name of User";
+    public Ticket()
+	{
+		ID = IDNum;
+		IDNum += 1;
+		//System.out.println(IDNum);
+		VIPLevel = 0;
+		problem = "Unnamed";
+		solved = false;
+		userName = "Name of User";
     }
 
-    public Ticket(int vip, String name, String issue){
-	ID = IDNum;
-	IDNum += 1;
-	//System.out.println(IDNum);
-	VIPLevel = vip;
-	userName = name;
-	problem = issue;
+    public Ticket(int vip, String name, String issue)
+	{
+		ID = IDNum;
+		IDNum += 1;
+		//System.out.println(IDNum);
+		VIPLevel = vip;
+		userName = name;
+		problem = issue;
     }
 
-    public int VIP(){
-	return VIPLevel;
+    public int VIP()
+	{
+		return VIPLevel;
     }
-    public int id(){
-	return ID;
+    public int id()
+	{
+		return ID;
     }
-    public String issue(){
-	return problem;
+    public String issue()
+	{
+		return problem;
     }
-    public String name(){
-	return userName;
+    public String name()
+	{
+		return userName;
     }
-    public boolean fix(){
-	solved = true;
-	return false;
+    public boolean fix()
+	{
+		solved = true;
+		return false;
     }
-    public boolean status(){
-	return solved;
+    public boolean status()
+	{
+		return solved;
     }
 
-    public String toString(){
-	String ret = "";
-	ret += ("\nTicket ID: " + ID);
-	ret += ("\nVIPLevel: " + VIPLevel);
-	ret += ("\nSubmitted by: " + userName);
-	ret += ("\nIssue: " + problem);
-	ret += ("\nSolved? " + solved);
-	ret += "\n";
-	return ret;
+    public String toString()
+	{
+		String ret = "";
+		ret += ("\nVIPLevel: " + VIPLevel);
+		ret += ("\nTicket ID: " + ID);
+		ret += ("\nSubmitted by: " + userName);
+		ret += ("\nIssue: " + problem);
+		ret += ("\nSolved? " + solved);
+		ret += "\n";
+		return ret;
 
     }
 
@@ -63,10 +72,10 @@ public class Ticket implements Comparable{
 	    return 0;
 	}
 	else if(this.VIP() <((Ticket)other).VIP()){
-	    return 1;
+	    return -1;
 	}
 	else{
-	    return -1;
+	    return 1;
 	}
     }
     /**

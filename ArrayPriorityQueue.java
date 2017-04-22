@@ -1,10 +1,5 @@
-/*************************
- * Jennifer Yu
- * APCS2 Period 5 (Partner: Brooke Jin)
- * 2017-04-19
- * HW #32: Getting Past the Velvet Rope
- ************************/
- 
+//Implementation of ArrayPriorityQueue 
+
 import java.util.ArrayList;
 public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 {
@@ -31,52 +26,55 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	}
 	
 	//Methods
-	/**
+	/********
 	 * Integer peekMin()
 	 * Looks at the item of highest priority in the ArrayPriorityQueue
 	 * Precondition: _data is a sorted ArrayList, with the items organized from highest priority (smallest integer values) to 
 	 * lowest priority (biggest integer values). Item with highest priority is in index 0. 
 	 * Post-condition: _data is unchanged. Item in index 0 is returned.
-	 **/
+	 ********/
     public D peekMin()
     {
 		if (isEmpty()){return null;}
 		return _data.get(0);
     } //O(1)
 	
-	/**
+	/********
 	 * Integer removeMin()
 	 * Removes the item of highest priority in the ArrayPriorityQueue
 	 * Precondition: _data is a sorted ArrayList, with the items organized from highest priority (smallest integer values) to 
 	 * lowest priority (biggest integer values). Item with highest priority is in index 0. 
 	 * Post-condition: The first element of _data is removed and returned. All other items are now shifted to the left, and 
 	 * the item formerly in index[1] is now of highest priority. 
-	 **/
+	 ********/
     public D removeMin()
     {
 		if (isEmpty()){return null;}
 		return _data.remove(0);
     } //O(n)
 
-	/**
+	/********
 	 * void add(Integer i)
 	 * Adds an item into an ArrayPriorityQueue, with its index dependent on the item's priority value
 	 * Precondition: _data is a sorted ArrayList, with the items organized from highest priority (smallest integer values) to 
 	 * lowest priority (biggest integer values). addBinaryHelp() is a method that conducts a binary search in order to find 
 	 * the correct index of an Integer i in an ArrayList in order to maintain sortedness. 
 	 * Post-condition: _data is still sorted in terms of priorities, and the new item has been added in its correct position. 
-	 **/
+	 ********/
     public void add(D i)
     {
-	if (isEmpty())
-	    {
-		_data.add(i);
-		return;
-	    }
-	int index = addBinaryHelp(0, _data.size(), (Comparable)i);
-	//System.out.println(index);
-	if (index == _data.size()){_data.add(i); return;}
-       	_data.add(index, i);
+		if (isEmpty())
+		{
+			_data.add(i);
+			return;
+		}
+		int index = addBinaryHelp(0, _data.size()-1, (Comparable)i);
+		if (index == _data.size())
+		{
+			_data.add(i); 
+			return;
+		}
+		_data.add(index, i);
     } //O(nlogn)
 
 	//Helpers
@@ -110,6 +108,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	//test da waters
 	public static void main(String[] args)
 	{
+		/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		//Testing functionality
 		ArrayList<Integer> greypoupon = new ArrayList();
 		greypoupon.add(1);
@@ -143,7 +142,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 		System.out.println(lamar.peekMin());
 		//expected: null
 		System.out.println(lamar.removeMin());
-		/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
 		//a stupid user
 		ArrayList<String> tedtalk = new ArrayList();
 		tedtalk.add(0);
@@ -154,9 +153,14 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 
 		//Testing Tickets
 		ArrayPriorityQueue<Ticket> sopranoc = new ArrayPriorityQueue();
-		sopranoc.add(new Ticket(5, "fi", "died"));
-		sopranoc.add(new Ticket(2, "fi", "died"));
-		sopranoc.add(new Ticket(3, "fi", "died"));
+		sopranoc.add(new Ticket(5, "50", "down in an airplane"));
+		sopranoc.add(new Ticket(2, "ways", "fried getting suntan"));
+		sopranoc.add(new Ticket(3, "to", "fell into a cement mix full of quicksand"));
+		sopranoc.add(new Ticket(0, "say", "met a shark underwater"));
+		sopranoc.add(new Ticket(1, "goodbye", "fell and no one caught her"));
+		sopranoc.add(new Ticket(11, "Train", "caught in a mudslide"));
 		System.out.println(sopranoc);
-	       }
+		System.out.println(sopranoc.peekMin());
+		System.out.println(sopranoc.removeMin());
+	}
 }
