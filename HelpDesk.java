@@ -20,8 +20,8 @@ public class HelpDesk
     public static void main(String[] args)
     {
 		HelpDesk swann = new HelpDesk();
-		swann.problemQueue.add(new Ticket(5, "Bob", "LoL"));
-		swann.problemQueue.add(new Ticket(1, "Ha", "exploded"));
+		swann.problemQueue.add(new Ticket(5, "Patrick", "eaten by a lion"));
+		swann.problemQueue.add(new Ticket(1, "Mohaney", "got run over by a cr**py purple scion"));
 		System.out.println(swann);
 		System.out.println(swann.problemQueue.removeMin());
 		System.out.println(swann.problemQueue.peekMin());
