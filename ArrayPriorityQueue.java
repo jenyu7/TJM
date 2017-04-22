@@ -50,6 +50,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
     public D removeMin()
     {
 		if (isEmpty()){return null;}
+		if (_data.get(0) instanceof Ticket){((Ticket)_data.get(0)).fix();}
 		return _data.remove(0);
     } //O(n)
 
