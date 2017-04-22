@@ -1,5 +1,7 @@
+//Ticket Class
 public class Ticket implements Comparable{
 
+	//Instance Variables 
     private static int IDNum = 0;
     private int ID;
     private int VIPLevel;
@@ -7,6 +9,7 @@ public class Ticket implements Comparable{
     private boolean solved;
     private String userName;
 
+	//Default Constructor
     public Ticket()
 	{
 		ID = IDNum;
@@ -15,9 +18,10 @@ public class Ticket implements Comparable{
 		VIPLevel = 0;
 		problem = "Unnamed";
 		solved = false;
-		userName = "Name of User";
+		userName = "Unknown User";
     }
 
+	//Overloaded Constructor
     public Ticket(int vip, String name, String issue)
 	{
 		ID = IDNum;
@@ -27,34 +31,9 @@ public class Ticket implements Comparable{
 		userName = name;
 		problem = issue;
     }
-
-    public int VIP()
-	{
-		return VIPLevel;
-    }
-    public int id()
-	{
-		return ID;
-    }
-    public String issue()
-	{
-		return problem;
-    }
-    public String name()
-	{
-		return userName;
-    }
-    public boolean fix()
-	{
-		solved = true;
-		return false;
-    }
-    public boolean status()
-	{
-		return solved;
-    }
-
-    public String toString()
+	
+	//toString() Method
+	 public String toString()
 	{
 		String ret = "";
 		ret += ("\nVIPLevel: " + VIPLevel);
@@ -66,17 +45,68 @@ public class Ticket implements Comparable{
 		return ret;
 
     }
+	
+	//Marks a problem as solved
+    public boolean fix()
+	{
+		solved = true;
+		return false;
+    }
+	
+	/********
+	 * int compareTo(Ticket other)
+	 * Precondition: Two Tickets are involved, one the invoker of the method and one the parameter. VIP levels of the Tickets * have already been set. 
+	 * Post-condition: An int is returned based on the VIP level of one Ticket in relation to the other. 
+	 * a. If both Tickets have the same VIP value, then return 0. 
+	 * b. If the caller Ticket has a higher VIP value (lower priority), then return 1. 
+	 * c. Else, return -1. 
+	 ********/
+    public int compareTo(Object other)
+	{
+		if(this.getVIP() == ((Ticket)other).getVIP())
+		{
+			return 0;
+		}
+		else if(this.getVIP() > ((Ticket)other).getVIP())
+		{
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
+    }
 
-    public int compareTo(Object other){
-	if(this.VIP() == ((Ticket)other).VIP()){
-	    return 0;
-	}
-	else if(this.VIP() <((Ticket)other).VIP()){
-	    return -1;
-	}
-	else{
-	    return 1;
-	}
+	//ACCESSORS
+	
+	//Returns VIP Level of problem
+    public int getVIP()
+	{
+		return VIPLevel;
+    }
+	
+	//Returns ID number of problem
+    public int getID()
+	{
+		return ID;
+    }
+	
+	//Returns description of problem
+    public String getProblem()
+	{
+		return problem;
+    }
+	
+	//Returns name of user who issued the problem
+    public String getName()
+	{
+		return userName;
+    }
+	
+	//Returns status of problem (solved or not)
+    public boolean getStatus()
+	{
+		return solved;
     }
     /**
     public static void main(String[] args){
@@ -87,8 +117,4 @@ public class Ticket implements Comparable{
 	System.out.println(bob.compareTo(ralph));
     }
     **/
-
-
-
-
 }
