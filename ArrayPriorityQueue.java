@@ -1,7 +1,9 @@
 //Implementation of ArrayPriorityQueue 
 
 import java.util.ArrayList;
-public class ArrayPriorityQueue<D> implements PriorityQueue<D>
+import java.util.Iterator;
+
+public class ArrayPriorityQueue<D> implements PriorityQueue<D>, Iterable<D>
 {
 	//Instance Variables
 	//Underlying ArrayList Container for ArrayPriorityQueue
@@ -24,6 +26,11 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
 	{
 	    return _data.toString();
 	}
+	
+	public Iterator<D> iterator() 
+    { 
+		return _data.iterator();
+    }
 	
 	//Methods
 	/********
@@ -50,7 +57,7 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>
     public D removeMin()
     {
 		if (isEmpty()){return null;}
-		if (_data.get(0) instanceof Ticket){((Ticket)_data.get(0)).fix();}
+		//if (_data.get(0) instanceof Ticket){((Ticket)_data.get(0)).fix();}
 		return _data.remove(0);
     } //O(n)
 
