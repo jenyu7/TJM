@@ -2,7 +2,6 @@
 public class Ticket implements Comparable{
 
 	//Instance Variables 
-    private static int IDNum = 0;
     private int ID;
     private int VIPLevel;
     private String problem;
@@ -13,8 +12,7 @@ public class Ticket implements Comparable{
 	//Default Constructor
     public Ticket()
 	{
-		ID = IDNum;
-		IDNum += 1;
+		ID = 0;
 		//System.out.println(IDNum);
 		VIPLevel = 0;
 		problem = "Unnamed";
@@ -24,10 +22,9 @@ public class Ticket implements Comparable{
     } //O(1)
 
 	//Overloaded Constructor
-    public Ticket(int vip, String name, String issue)
+    public Ticket(int IDNum, int vip, String name, String issue)
 	{
 		ID = IDNum;
-		IDNum += 1;
 		//System.out.println(IDNum);
 		VIPLevel = vip;
 		userName = name;

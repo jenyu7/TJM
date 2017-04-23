@@ -5,6 +5,7 @@ public class HelpDesk
 	//INSTANCE VARIABLES
     private ArrayPriorityQueue<Ticket> problemQueue;
 	private ArrayPriorityQueue<Ticket> solutions;
+	private static int nextTicketID;
 
 	//DEFAULT CONSTRUCTOR
     public HelpDesk()
@@ -22,9 +23,9 @@ public class HelpDesk
 	//WRAPPER METHODS
 	//See ArrayPriorityQueue class for detailed description of functionality
 	
-	public void add(Ticket t)
+	public void add(int vip, String name, String issue)
 	{
-		problemQueue.add(t);
+		problemQueue.add(new Ticket(nextTicketID++, vip, name, issue));
 	}
 
 	public Ticket peekMin()
@@ -36,22 +37,6 @@ public class HelpDesk
 	{
 		return problemQueue.isEmpty();
 	}
-	
-	//ACCESSORS
-	
-	//Returns the ArrayPriorityQueue of problems
-	public ArrayPriorityQueue<Ticket> getProblems()
-	{
-		return problemQueue;
-	}
-	
-	//Returns the ArrayPriorityQueue of solutions of already solved problems
-	public ArrayPriorityQueue<Ticket> getSolutions()
-	{
-		return solutions;
-	}
-	
-	//METHODS 
 	
 	//Added functionality: fixes the Ticket, adds it to the solution pile, and then removes it from problemQueue
 	public Ticket removeMin()
@@ -77,6 +62,22 @@ public class HelpDesk
 		return problemQueue.removeMin();
 	}
 	
+	//ACCESSORS
+	
+	//Returns the ArrayPriorityQueue of problems
+	public ArrayPriorityQueue<Ticket> getProblems()
+	{
+		return problemQueue;
+	}
+	
+	//Returns the ArrayPriorityQueue of solutions of already solved problems
+	public ArrayPriorityQueue<Ticket> getSolutions()
+	{
+		return solutions;
+	}
+	
+	//METHODS 
+	
 	/********
 	 * LinkedList<Ticket> findSolutions (int VIPLevel)
 	 * Precondition: solutions is an ArrayPriorityQueue containing Tickets that have already been solved. 
@@ -101,11 +102,11 @@ public class HelpDesk
     {
 		//A regular HelpDesk
 		HelpDesk swann = new HelpDesk();
-		swann.add(new Ticket(5, "Patrick", "eaten by a lion"));
-		swann.add(new Ticket(1, "Mohanan", "got run over by a cr**py purple scion"));
-		swann.add(new Ticket(3, "Stafford", "dried up in a desert"));
-		swann.add(new Ticket(90, "Becker", "drowned in a hot tub"));
-		swann.add(new Ticket(4, "Maldonado", "danced to death at a east side night club"));
+		swann.add(5, "Patrick", "eaten by a lion");
+		swann.add(1, "Mohanan", "got run over by a cr**py purple scion");
+		swann.add(3, "Stafford", "dried up in a desert");
+		swann.add(90, "Becker", "drowned in a hot tub");
+		swann.add(4, "Maldonado", "danced to death at a east side night club");
 		//expected: All Tickets, highest priority Ticket printed first
 		System.out.println(swann);
 		//expected: 1, Monahan...
@@ -124,11 +125,11 @@ public class HelpDesk
 		
 		//Testing adding solutions
 		HelpDesk fray = new HelpDesk();
-		fray.add(new Ticket(3, "Me", "lost and insecure"));
-		fray.add(new Ticket(1, "You", "where were you"));
+		fray.add(3, "Me", "lost and insecure");
+		fray.add(1, "You", "where were you");
 		System.out.println(fray.getSolutions());
-		fray.add(new Ticket (0, "I", "how to save a life"));
-		fray.add(new Ticket (1, "I", "lost a friend"));
+		fray.add(0, "I", "how to save a life");
+		fray.add(1, "I", "lost a friend");
 		fray.removeMin("stay up with you all night");
 		System.out.println(fray.getSolutions());
 		System.out.println();
