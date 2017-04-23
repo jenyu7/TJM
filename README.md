@@ -15,6 +15,7 @@ Ticket
 -has accessor and mutator methods
 
 HelpDesk
+
 -has two arraypriorityqueues: problemQueue and solutions
 
 -add method to add tickets to problemQueue
