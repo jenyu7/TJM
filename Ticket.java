@@ -12,7 +12,7 @@ public class Ticket implements Comparable{
 	//Default Constructor
     public Ticket()
 	{
-		ID = 0;
+		ID = -1;
 		//System.out.println(IDNum);
 		VIPLevel = 0;
 		problem = "Unnamed";
