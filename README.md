@@ -1,12 +1,12 @@
 # TJM
 
-Tina Chen, Jen Yu, Mansour Elshawary
+######Jen Yu, Tina Chen, Mansour Elsharawy
 
-Design
+**Design**
 
-ArrayPriorityQueue
+*ArrayPriorityQueue*
 
--uses a binary search algorithm to add an object onto the ArrayList
+ -uses a binary search algorithm to add an object onto the ArrayList
 
 Ticket
 
