@@ -3,8 +3,10 @@
 Tina Chen, Jen Yu, Mansour Elshawary
 
 Design
+
 ArrayPriorityQueue
-uses a binary search algorithm to add an object onto the ArrayList
+
+-uses a binary search algorithm to add an object onto the ArrayList
 
 Ticket
 
