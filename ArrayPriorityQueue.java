@@ -161,12 +161,12 @@ public class ArrayPriorityQueue<D> implements PriorityQueue<D>, Iterable<D>
 
 		//Testing Tickets
 		ArrayPriorityQueue<Ticket> sopranoc = new ArrayPriorityQueue();
-		sopranoc.add(new Ticket(5, "50", "down in an airplane"));
-		sopranoc.add(new Ticket(2, "ways", "fried getting suntan"));
-		sopranoc.add(new Ticket(3, "to", "fell into a cement mix full of quicksand"));
-		sopranoc.add(new Ticket(0, "say", "met a shark underwater"));
-		sopranoc.add(new Ticket(1, "goodbye", "fell and no one caught her"));
-		sopranoc.add(new Ticket(11, "Train", "caught in a mudslide"));
+		sopranoc.add(new Ticket(0,5, "50", "down in an airplane"));
+		sopranoc.add(new Ticket(1,2, "ways", "fried getting suntan"));
+		sopranoc.add(new Ticket(2,3, "to", "fell into a cement mix full of quicksand"));
+		sopranoc.add(new Ticket(3,0, "say", "met a shark underwater"));
+		sopranoc.add(new Ticket(4,1, "goodbye", "fell and no one caught her"));
+		sopranoc.add(new Ticket(5,11, "Train", "caught in a mudslide"));
 		System.out.println(sopranoc);
 		System.out.println(sopranoc.peekMin());
 		System.out.println(sopranoc.removeMin());
