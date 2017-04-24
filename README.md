@@ -2,7 +2,7 @@
 
 #### Jen Yu, Tina Chen, Mansour Elsharawy
 
-**Design**
+**_Design_**
 
 *ArrayPriorityQueue* 
  - Underlying ArrayList Structure
@@ -30,3 +30,8 @@
  - Added a findSolution(int VIP) function, which returns a LinkedList with all solved Tickets who had VIP levels in the range (VIP-2, VIP+2). 
 
 [Flowchart and UML Diagrams can be found here.](https://docs.google.com/document/d/1WyNgvcG6txAYSdO714Z9QuXsod0vsRF7kKnCLjeFBVw/pub "Team TJM")
+
+**_Embellishments_**
+ - Added an iterator to ArrayPriorityQueue. It seemed good to be able to easily iterate through such a Queue, considering that the underlying structure of the class was an ArrayList. It helped in the implementation of findSolutions() [described below] 
+ - findSolutions(int VIPLevel) was an addition to the HelpDesk implementation. The idea was that a HelpDesk could find other problems in the past with similar priority levels as a given problem, see if a previous problem matched the given problem, and if so, to pull that solution. This function also used a for-each loop in order to find Tickets within the VIP Level range. 
+ - Wrapper functions were utilized in the HelpDesk class. However, the add() and removeMin() methods were not _just_ wrappers, but also provided functionality of their own; add() provided the Ticket with an ID number, and removeMin() would mark Tickets as fixed and add them to the database (ArrayPriorityQueue solutions) of solved Tickets. 
